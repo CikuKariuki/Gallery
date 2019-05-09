@@ -13,6 +13,7 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
 
 </head>
@@ -20,7 +21,7 @@
     {% include "navbar.html" %}
 
     {% block content %} 
-    
+    <h1>Hello world</h1>
     {%endblock%}
 
     {% block scripts %}
