@@ -19,7 +19,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'photos.apps.PhotosConfig', #this will allow the projects configurations be reflected in our app.
+    'photos',
+    'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
