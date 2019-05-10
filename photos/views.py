@@ -8,7 +8,8 @@ def welcome(request):
 
 def photos_of_day(request):
     date = dt.date.today()
-    return render(request,'all-photos/today_photos.html',{"date": date,})
+    photos = Image.objects.all()
+    return render(request,'all-photos/today_photos.html',{"date": date,"photos":photos,})
 
 def past_photos(request,past_date):
     try:

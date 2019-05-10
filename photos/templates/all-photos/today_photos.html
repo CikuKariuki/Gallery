@@ -1,7 +1,16 @@
 {%extends 'all-photos/base.html'%}
 
 {% block content %}
-<h1>Hello world, I love coding</h1>
-{{block.super}}
 
+{{block.super}}
+{% for photos_item in photos %}
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">{{photos_item.caption}}</h2>
+        </div>
+        <div class="col-md-6">
+            <img src="{{photos_item.image.url}}" class="img-responsive">
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}
