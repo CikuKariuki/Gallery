@@ -6,7 +6,7 @@ class Editor(models.Model):
 
     def save_editor(self):
         self.save()
-        
+
     def __str__(self):
         return self.name
 
@@ -14,9 +14,9 @@ class Image(models.Model):
     image =models.ImageField()
     name = models.CharField(max_length = 100)
     description = models.TextField()
+    location = models.CharField(max_length=100,blank=True)
     # editor = models.ForeignKey(Editor)
-    # location = models.ForeignKey(Location)
-    # category = models.ForeignKey(Category)
+    category = models.CharField(max_length = 10)
     # pub_date =models.DateTimeField(auto_now_add = True)
 
 class Category(models.Model):
