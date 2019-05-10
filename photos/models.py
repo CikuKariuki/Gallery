@@ -1,4 +1,17 @@
 from django.db import models
+import datetime as dt 
+
+class Category(models.Model):
+    category =models.CharField(max_length = 20)
+
+    def __str__(self):
+        return self.name
+
+class Location(models.Model):
+    location =models.CharField(max_length = 50)
+
+    def __str__(self):
+        return self.name
 
 class Editor(models.Model):
     name = models.CharField(max_length = 30)
@@ -11,22 +24,17 @@ class Editor(models.Model):
         return self.name
 
 class Image(models.Model):
-    image =models.ImageField()
-    name = models.CharField(max_length = 100)
+    image =models.ImageField(upload_to = 'photos/')
+    caption = models.CharField(max_length = 100)
     description = models.TextField()
-    location = models.CharField(max_length=100,blank=True)
-    # editor = models.ForeignKey(Editor)
-    category = models.CharField(max_length = 10)
-    # pub_date =models.DateTimeField(auto_now_add = True)
+    location = models.ForeignKey(Location)
+    editor = models.ForeignKey(Editor)
+    category = models.ForeignKey(Category)
+    pub_date =models.DateTimeField(auto_now_add = True)
 
-class Category(models.Model):
-    name=models.CharField(max_length = 20)
+    # @classmethod
+    # def today_photos(cls):
+    #     today = dt.date.today()
+    #     photos = cls.objects.filter(pub_date__date = today)
 
-    def __str__(self):
-        return self.name
-
-class Location(models.Model):
-    name=models.CharField(max_length = 50)
-
-    def __str__(self):
-        return self.name
+    #     return photos
