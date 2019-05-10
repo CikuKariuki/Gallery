@@ -5,13 +5,15 @@ class Category(models.Model):
     category =models.CharField(max_length = 20)
 
     def __str__(self):
-        return self.name
+        return self.category
 
 class Location(models.Model):
     location =models.CharField(max_length = 50)
 
     def __str__(self):
-        return self.name
+        return self.location
+
+
 
 class Editor(models.Model):
     name = models.CharField(max_length = 30)
@@ -22,6 +24,9 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
 
 class Image(models.Model):
     image =models.ImageField(upload_to = 'photos/')
@@ -38,3 +43,5 @@ class Image(models.Model):
     #     photos = cls.objects.filter(pub_date__date = today)
 
     #     return photos
+
+    
