@@ -27,7 +27,6 @@ class Editor(models.Model):
 
 
 
-
 class Image(models.Model):
     image =models.ImageField(upload_to = 'photos/')
     caption = models.CharField(max_length = 100)
@@ -37,11 +36,10 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     pub_date =models.DateTimeField(auto_now_add = True)
 
-    # @classmethod
-    # def today_photos(cls):
-    #     today = dt.date.today()
-    #     photos = cls.objects.filter(pub_date__date = today)
+    @classmethod
+    def search_by_category(cls,search_term):
+        photos = cls.objects.filter(category__category__icontains = search_term)
 
-    #     return photos
+        return photos
 
     

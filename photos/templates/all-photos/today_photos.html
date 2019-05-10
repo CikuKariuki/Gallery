@@ -1,16 +1,21 @@
 {%extends 'all-photos/base.html'%}
-
 {% block content %}
-
 {{block.super}}
-{% for photos_item in photos %}
+<div class="container">
+
     <div class="row">
-        <div class="col-md-6">
+            {% for photos_item in photos %}
+        <div class="col-md-4">
             <h2 class="text-center">{{photos_item.caption}}</h2>
-        </div>
-        <div class="col-md-6">
+       
             <img src="{{photos_item.image.url}}" class="img-responsive">
         </div>
+        {% empty %}
+        <div class="row">
+          <h2 class="text-center">There No News Items</h2>
+        </div>
+      {% endfor %}
+      </div>
     </div>
-{% endfor %}
+   
 {% endblock %}

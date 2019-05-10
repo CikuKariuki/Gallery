@@ -25,3 +25,13 @@ def past_photos(request,past_date):
         return redirect(past_photos)
 
     return render(request,'all-photos/past_photos.html',{"date": date})
+
+def search_results(request):
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = Image.search_by_category(search_term)
+        message = f"{search_term}"
+        return render(request,'all-photos/search.html',{"message":message,"images":searched_images})
+    else:
+        message = "Please check for spelling or search another term"
+        return render(request,'all-photos/search.html',{"message":message,"images":searched_images,})
