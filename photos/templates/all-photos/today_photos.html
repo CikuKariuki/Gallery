@@ -7,10 +7,11 @@
             {% for image in photos %}
         <div class="col-md-4">
             <a style="font-family: 'IM Fell Double Pica SC', serif; font-size: 20px;" data-caption="{{image.description}} <br> {{image.category}} <br> {{image.pub_date}}"  href="{{image.image.url}}"data-fancybox>
-              <h3>{{image.editor}}</h3>    
-              <p> {{image.location}}</p>
-                <img style="height: 350px;width: 450px; box-shadow: 2px 2px 20px 2px #591d1e" class="img-responsive"  src="{{image.image.url}}" alt="image">
-                <p style="font-family: 'IM Fell Double Pica SC', serif; color: black; font-size: 20px;">{{image.caption}} <br>{{image.pub_date}} </p>
+              <h3 style="color:black;">{{image.editor}}</h3>    
+              <p style="font-size:15px; font-style: oblique; "> {{image.location}}</p>
+                <img style="height: 400px;width: 500px;border-radius:2%; border: 2px solid white;" class="img-responsive"  src="{{image.image.url}}" alt="image">
+                <p style="font-family: 'IM Fell Double Pica SC', serif; color: black; font-size: 20px;">{{image.caption}} </p>
+                <p style="font-family: 'IM Fell Double Pica SC', serif; color: black; font-size: 15px;">{{image.pub_date}}</p>
             </a>
         </div>
         {% empty %}
