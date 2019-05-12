@@ -12,7 +12,12 @@
         {% if images %}
             {% for image in images%}
             <div class="col-sm-6 col-md-3">
-                <img src="{{image.image.url}}" alt="">
+                <a data-caption="{{image.caption}} <br>{{image.description}} <br> {{image.category}} <br> {{image.pub_date}}"  href="{{image.image.url}}"data-fancybox>
+                    <h3>{{image.editor}}</h3>    
+                    <p> {{image.location}}</p>
+                      <img class="img-responsive"  src="{{image.image.url}}" alt="image">
+                       {{image.pub_date}}
+                  </a>
             </div>
             {% endfor %}
         {% endif %}
