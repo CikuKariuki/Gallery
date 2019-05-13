@@ -42,4 +42,8 @@ class Image(models.Model):
 
         return photos
 
-    
+    def delete_image(self):
+       self.delete()
+
+    def save_image(self):
+        self.save()
