@@ -14,7 +14,7 @@
     <div class="row">
             {% for image in photos %}
         <div class="col-md-4">
-            <a style="font-family: 'IM Fell Double Pica SC', serif; font-size: 20px;" data-caption="{{image.description}} <br> {{image.category}} <br> {{image.pub_date}}"  href="{{image.image.url}}"data-fancybox>
+            <a style="font-family: 'IM Fell Double Pica SC', serif; font-size: 20px;" data-caption="{{image.description}} <br> {{image.category}} <br>{{image.pub_date}} <br> {{image.image.url}}"  href="{{image.image.url}}"data-fancybox>
               <h3 style="color:black;">{{image.editor}}</h3>    
               <p style="font-size:15px; font-style: oblique; "> {{image.location}}</p>
                 <img style="height: 400px;width: 500px;border-radius:2%; border: 2px solid white;" class="img-responsive" id=link src="{{image.image.url}}" alt="image">
