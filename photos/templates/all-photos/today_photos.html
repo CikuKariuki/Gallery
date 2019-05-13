@@ -2,8 +2,8 @@
 {% block content %}
 {{block.super}}
 <script>
-  function CopyFun(link) {
-  var copyText = document.getElementById(link);
+  function CopyFun() {
+  var copyText = document.getElementById("link");
   copyText.select();
   document.execCommand("copy");
   alert("Text has been coppied: " + copyText.value);
@@ -14,13 +14,15 @@
     <div class="row">
             {% for image in photos %}
         <div class="col-md-4">
-            <a style="font-family: 'IM Fell Double Pica SC', serif; font-size: 20px;" data-caption="{{image.description}} <br> {{image.category}} <br>{{image.pub_date}} <br> {{image.image.url}}"  href="{{image.image.url}}"data-fancybox>
+            <a style="font-family: 'IM Fell Double Pica SC', serif; font-size: 20px;" data-caption="{{image.description}} <br> {{image.category}} <br>{{image.pub_date}} "  href="{{image.image.url}}"data-fancybox>
               <h3 style="color:black;">{{image.editor}}</h3>    
               <p style="font-size:15px; font-style: oblique; "> {{image.location}}</p>
                 <img style="height: 400px;width: 500px;border-radius:2%; border: 2px solid white;" class="img-responsive" id=link src="{{image.image.url}}" alt="image">
                 <p style="font-family: 'IM Fell Double Pica SC', serif; color: black; font-size: 20px;">{{image.caption}} </p>
                 <p style="font-family: 'IM Fell Double Pica SC', serif; color: black; font-size: 15px;">{{image.pub_date}}</p>
             </a>
+            <input type="text" value="{{image.image.url}}" id="link" hidden>
+            <a style="cursor:-webkit-grabbing;" onclick="CopyFun()">Copy</a>
         </div>
         {% empty %}
         <div class="row">
